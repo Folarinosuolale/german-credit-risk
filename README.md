@@ -37,6 +37,8 @@ This project demonstrates building a model that is not just performant, but **ex
 | **Recall** | 0.750 |
 | **Disparate Impact Ratio** | 0.895 (PASS, above 0.8 threshold) |
 
+Logistic Regression was selected as the best model because **recall is the most important metric in credit risk** -- missing a defaulter costs the bank real money, while a false alarm only costs a follow-up review. With 0.750 recall, Logistic Regression catches 75% of defaulters, outperforming all other models on this metric. XGBoost (Tuned) achieved the highest AUC (0.788) but only 0.600 recall.
+
 If the DIR is below 80%, the model would then run **Fairlearn bias mitigation** (ThresholdOptimizer and ExponentiatedGradient), to bring the Disparate Impact Ratio above the 0.80 legal threshold while preserving most of the model's accuracy.
 
 ### Top Risk Factors (by SHAP importance)
@@ -96,13 +98,13 @@ The German Credit dataset is the industry standard for credit scoring research:
 ### 4. Model Training and Comparison
 Four models trained and compared:
 
-| Model | ROC AUC | CV AUC | F1 |
+| Model | ROC AUC | RECALL | F1 |
 |---|---|---|---|
-| Logistic Regression | 0.773 | 0.794 | 0.643 |
-| Random Forest | 0.781 | 0.793 | 0.564 |
-| XGBoost | 0.774 | 0.770 | 0.607 |
-| LightGBM | 0.766 | 0.768 | 0.536 |
-| **XGBoost (Tuned)** | **0.7883** | -- | **0.623** |
+| **Logistic Regression** | **0.773** | **0.750** | **0.643** |
+| Random Forest | 0.781 | 0.550 | 0.564 |
+| XGBoost | 0.774 | 0.617 | 0.607 |
+| LightGBM | 0.766 | 0.500 | 0.536 |
+| XGBoost (Tuned) | 0.788 | 0.600 | 0.558 |
 
 ### 5. Hyperparameter Tuning
 - **Method:** Optuna Bayesian optimization (50 trials)
