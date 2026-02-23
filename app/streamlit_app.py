@@ -177,21 +177,21 @@ if page == "Overview":
         st.markdown("""
         **These five numbers summarize how well the model performs at predicting loan defaults:**
 
-        - **ROC AUC (0.799):** Measures the model's overall ability to distinguish between good and bad credit applicants.
-          Ranges from 0.5 (random guessing) to 1.0 (perfect). Our score of 0.799 means the model correctly ranks
-          a randomly chosen defaulter as riskier than a randomly chosen non-defaulter about 80% of the time.
+        - **ROC AUC (0.773):** Measures the model's overall ability to distinguish between good and bad credit applicants.
+          Ranges from 0.5 (random guessing) to 1.0 (perfect). Our score of 0.773 means the model correctly ranks
+          a randomly chosen defaulter as riskier than a randomly chosen non-defaulter about 77% of the time.
           In the credit industry, scores between 0.70-0.85 are considered strong.
 
-        - **F1 Score (0.623):** The balance between Precision and Recall (their harmonic mean). A high F1 means
+        - **F1 Score (0.643):** The balance between Precision and Recall (their harmonic mean). A high F1 means
           the model is reasonably good at both finding defaulters AND not falsely accusing good borrowers.
           A perfect score would be 1.0.
 
-        - **Precision (0.574):** Of all the people the model flagged as "will default," 57.4% actually did default.
-          The remaining 42.6% were false alarms (good borrowers incorrectly flagged). Higher is better,
+        - **Precision (0.563):** Of all the people the model flagged as "will default," 56.3% actually did default.
+          The remaining 43.7% were false alarms (good borrowers incorrectly flagged). Higher is better,
           but pushing precision too high usually comes at the cost of missing real defaulters.
 
-        - **Recall (0.683):** Of all the people who actually defaulted, the model caught 68.3% of them.
-          The remaining 31.7% were missed (defaulters the model incorrectly approved). In credit scoring,
+        - **Recall (0.750):** Of all the people who actually defaulted, the model caught 75.0% of them.
+          The remaining 25.0% were missed (defaulters the model incorrectly approved). In credit scoring,
           recall is often prioritized because missing a defaulter costs the bank real money.
 
         - **Avg Precision:** Summarizes the precision-recall trade-off across all possible thresholds.
