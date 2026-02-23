@@ -31,62 +31,22 @@ This project demonstrates building a model that is not just performant, but **ex
 
 | Metric | Value |
 |---|---|
-| **ROC AUC** | 0.799 |
-| **F1 Score** | 0.623 |
-| **Precision** | 0.574 |
-| **Recall** | 0.683 |
-| **Disparate Impact Ratio** | 0.791 (FAIL, below 0.8 threshold) |
+| **ROC AUC** | 0.773 |
+| **F1 Score** | 0.643 |
+| **Precision** | 0.562 |
+| **Recall** | 0.750 |
+| **Disparate Impact Ratio** | 0.895 (PASS, above 0.8 threshold) |
 
-The model was then run through **Fairlearn bias mitigation** (ThresholdOptimizer and ExponentiatedGradient), which brought the Disparate Impact Ratio above the 0.80 legal threshold while preserving most of the model's accuracy.
+If the DIR is below 80%, the model would then run **Fairlearn bias mitigation** (ThresholdOptimizer and ExponentiatedGradient), to bring the Disparate Impact Ratio above the 0.80 legal threshold while preserving most of the model's accuracy.
 
 ### Top Risk Factors (by SHAP importance)
 1. **Checking Account Status** - Strongest predictor; no checking account correlates with lower risk
-2. **Loan Purpose** - Education and used car loans show different risk profiles
-3. **Savings Account** - Higher savings strongly reduce default probability
+2. **Savings Account** - Higher savings strongly reduce default probability
+3. **Loan Purpose** - Education and used car loans show different risk profiles
 4. **Credit History** - Prior payment behavior is a key risk signal
-5. **Credit Per Month** - Derived feature; monthly credit burden drives risk
-
+5. **Emplyoyment since** - Longer employment signals job stability and reliable income
+   
 ---
-
-## Project Structure
-
-```
-credit-risk-scoring/
-|-- app/
-|   +-- streamlit_app.py          # Interactive dashboard (6 pages)
-|-- assets/
-|   |-- shap_summary.png          # SHAP beeswarm plot
-|   |-- shap_bar.png              # SHAP global importance
-|   +-- shap_waterfall.png        # Single prediction explanation
-|-- data/
-|   |-- german_credit.data        # Raw dataset (UCI)
-|   +-- german_credit.doc         # Dataset documentation
-|-- docs/
-|   |-- PROJECT_REPORT.md         # Comprehensive technical report
-|   |-- STAKEHOLDER_BRIEF.md      # Non-technical stakeholder document
-|   |-- REPRODUCTION_GUIDE.md     # Step-by-step reproduction guide
-|   +-- DASHBOARD_GUIDE.md        # Dashboard reference document
-|-- models/
-|   |-- best_model.pkl            # Trained XGBoost model
-|   |-- artifacts.pkl             # Preprocessing transformers
-|   |-- pipeline_results.json     # All metrics and results
-|   |-- model_comparison.csv      # Model comparison table
-|   |-- feature_importance.csv    # SHAP feature importance
-|   |-- roc_data.json             # ROC curve data for all models
-|   |-- confusion_matrices.json   # Confusion matrices
-|   +-- shap_dict.pkl             # SHAP values and explainer
-|-- src/
-|   |-- data_loader.py            # Data loading and decoding
-|   |-- feature_engineering.py    # Feature creation and preparation
-|   |-- model_training.py         # Training, tuning, evaluation, bias mitigation
-|   |-- explainability.py         # SHAP analysis
-|   +-- run_pipeline.py           # End-to-end pipeline runner
-|-- requirements.txt
-+-- README.md
-```
-
----
-
 ## Dataset
 
 **German Credit Data** (UCI Machine Learning Repository)
@@ -142,13 +102,13 @@ Four models trained and compared:
 | Random Forest | 0.781 | 0.793 | 0.564 |
 | XGBoost | 0.774 | 0.770 | 0.607 |
 | LightGBM | 0.766 | 0.768 | 0.536 |
-| **XGBoost (Tuned)** | **0.799** | -- | **0.623** |
+| **XGBoost (Tuned)** | **0.7883** | -- | **0.623** |
 
 ### 5. Hyperparameter Tuning
 - **Method:** Optuna Bayesian optimization (50 trials)
 - **Search Space:** 10 hyperparameters including learning rate, max depth, regularization, subsampling
 - **Objective:** Maximize 5-fold stratified cross-validated ROC AUC
-- **Result:** +2.5% AUC improvement over base XGBoost
+- **Result:** +1.4% AUC improvement over base XGBoost
 
 ### 6. Explainability (SHAP)
 - TreeExplainer for exact SHAP value computation
@@ -159,11 +119,11 @@ Four models trained and compared:
 ### 7. Fairness Analysis
 - **Metric:** Disparate Impact Ratio (approval rate ratio between gender groups)
 - **Standard:** EEOC 4/5ths rule, ratio must be >= 0.80
-- **Result:** Ratio = 0.791, model shows potential gender bias
-- **Finding:** Female applicants receive ~14 percentage points lower approval rate
+- **Result:** Ratio = 0.897, model shows no gender bias
+- **Finding:** Female applicants receive ~7 percentage points lower approval rate
 
 ### 8. Bias Mitigation (Fairlearn)
-Two mitigation strategies applied and compared:
+Two mitigation strategies applied and compared (only if DIR < 0.80):
 
 | Strategy | Type | Approach | Result |
 |---|---|---|---|
@@ -220,6 +180,7 @@ This project mirrors the exact workflow used at banks and fintechs:
 
 ```bash
 # 1. Clone and install
+git clone https://github.com/Folarinosuolale/german-credit-risk
 cd credit-risk-scoring
 pip install -r requirements.txt
 
