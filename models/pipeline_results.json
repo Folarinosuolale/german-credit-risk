@@ -1,0 +1,390 @@
+{
+  "eda_stats": {
+    "shape": [
+      1000,
+      22
+    ],
+    "default_rate": 0.3,
+    "target_distribution": {
+      "0": 700,
+      "1": 300
+    },
+    "missing_values": 0,
+    "dtypes": {
+      "checking_account": "object",
+      "duration_months": "int64",
+      "credit_history": "object",
+      "purpose": "object",
+      "credit_amount": "int64",
+      "savings_account": "object",
+      "employment_since": "object",
+      "installment_rate": "int64",
+      "personal_status_sex": "object",
+      "other_debtors": "object",
+      "residence_since": "int64",
+      "property": "object",
+      "age": "int64",
+      "other_installment_plans": "object",
+      "housing": "object",
+      "num_existing_credits": "int64",
+      "job": "object",
+      "num_dependents": "int64",
+      "telephone": "object",
+      "foreign_worker": "object",
+      "target": "int64",
+      "gender": "object"
+    },
+    "numerical_stats": {
+      "duration_months": {
+        "mean": 20.903,
+        "std": 12.058814452756392,
+        "min": 4.0,
+        "max": 72.0,
+        "median": 18.0,
+        "skewness": 1.0941841715555418
+      },
+      "credit_amount": {
+        "mean": 3271.258,
+        "std": 2822.73687596044,
+        "min": 250.0,
+        "max": 18424.0,
+        "median": 2319.5,
+        "skewness": 1.9496276798326209
+      },
+      "installment_rate": {
+        "mean": 2.973,
+        "std": 1.1187146743126737,
+        "min": 1.0,
+        "max": 4.0,
+        "median": 3.0,
+        "skewness": -0.5313481143125486
+      },
+      "residence_since": {
+        "mean": 2.845,
+        "std": 1.1037178956568579,
+        "min": 1.0,
+        "max": 4.0,
+        "median": 3.0,
+        "skewness": -0.2725698140337228
+      },
+      "age": {
+        "mean": 35.546,
+        "std": 11.375468574317502,
+        "min": 19.0,
+        "max": 75.0,
+        "median": 33.0,
+        "skewness": 1.0207392686768317
+      },
+      "num_existing_credits": {
+        "mean": 1.407,
+        "std": 0.5776544682460991,
+        "min": 1.0,
+        "max": 4.0,
+        "median": 1.0,
+        "skewness": 1.2725759670020926
+      },
+      "num_dependents": {
+        "mean": 1.155,
+        "std": 0.3620857717531924,
+        "min": 1.0,
+        "max": 2.0,
+        "median": 1.0,
+        "skewness": 1.909444721297485
+      }
+    },
+    "categorical_stats": {
+      "checking_account": {
+        "No checking account": 394,
+        "< 0 DM": 274,
+        "0 - 200 DM": 269,
+        ">= 200 DM": 63
+      },
+      "credit_history": {
+        "Existing credits paid back duly till now": 530,
+        "Critical account / other credits existing": 293,
+        "Delay in paying off in the past": 88,
+        "All credits at this bank paid back duly": 49,
+        "No credits taken / all paid back duly": 40
+      },
+      "purpose": {
+        "Radio/television": 280,
+        "Car (new)": 234,
+        "Furniture/equipment": 181,
+        "Car (used)": 103,
+        "Business": 97,
+        "Education": 50,
+        "Repairs": 22,
+        "Domestic appliances": 12,
+        "Others": 12,
+        "Retraining": 9
+      },
+      "savings_account": {
+        "< 100 DM": 603,
+        "Unknown / no savings": 183,
+        "100 - 500 DM": 103,
+        "500 - 1000 DM": 63,
+        ">= 1000 DM": 48
+      },
+      "employment_since": {
+        "1 - 4 years": 339,
+        ">= 7 years": 253,
+        "4 - 7 years": 174,
+        "< 1 year": 172,
+        "Unemployed": 62
+      },
+      "personal_status_sex": {
+        "Male: single": 548,
+        "Female: divorced/separated/married": 310,
+        "Male: married/widowed": 92,
+        "Male: divorced/separated": 50
+      },
+      "other_debtors": {
+        "None": 907,
+        "Guarantor": 52,
+        "Co-applicant": 41
+      },
+      "property": {
+        "Car or other": 332,
+        "Real estate": 282,
+        "Building society savings / life insurance": 232,
+        "Unknown / no property": 154
+      },
+      "other_installment_plans": {
+        "None": 814,
+        "Bank": 139,
+        "Stores": 47
+      },
+      "housing": {
+        "Own": 713,
+        "Rent": 179,
+        "For free": 108
+      },
+      "job": {
+        "Skilled employee / official": 630,
+        "Unskilled - resident": 200,
+        "Management / self-employed / highly qualified": 148,
+        "Unemployed / unskilled - non-resident": 22
+      },
+      "telephone": {
+        "None": 596,
+        "Yes (registered)": 404
+      },
+      "foreign_worker": {
+        "Yes": 963,
+        "No": 37
+      },
+      "gender": {
+        "Male": 690,
+        "Female": 310
+      }
+    }
+  },
+  "comparison": {
+    "Logistic Regression": {
+      "accuracy": 0.75,
+      "precision": 0.5625,
+      "recall": 0.75,
+      "f1_score": 0.6428571428571429,
+      "roc_auc": 0.7727380952380952,
+      "avg_precision": 0.6435599033230136
+    },
+    "Random Forest": {
+      "accuracy": 0.745,
+      "precision": 0.5789473684210527,
+      "recall": 0.55,
+      "f1_score": 0.5641025641025641,
+      "roc_auc": 0.7814285714285716,
+      "avg_precision": 0.665739536064647
+    },
+    "XGBoost": {
+      "accuracy": 0.76,
+      "precision": 0.5967741935483871,
+      "recall": 0.6166666666666667,
+      "f1_score": 0.6065573770491803,
+      "roc_auc": 0.7738095238095238,
+      "avg_precision": 0.6406383544924492
+    },
+    "LightGBM": {
+      "accuracy": 0.74,
+      "precision": 0.5769230769230769,
+      "recall": 0.5,
+      "f1_score": 0.5357142857142857,
+      "roc_auc": 0.7659523809523809,
+      "avg_precision": 0.6236066813550252
+    }
+  },
+  "tuned_metrics": {
+    "accuracy": 0.715,
+    "precision": 0.5217391304347826,
+    "recall": 0.6,
+    "f1_score": 0.5581395348837209,
+    "roc_auc": 0.7883333333333333,
+    "avg_precision": 0.6728152571226143
+  },
+  "best_params": {
+    "n_estimators": 424,
+    "max_depth": 10,
+    "learning_rate": 0.05438580691278616,
+    "subsample": 0.9077915711958181,
+    "colsample_bytree": 0.9970732782834151,
+    "min_child_weight": 1,
+    "gamma": 0.3371919443627724,
+    "reg_alpha": 0.015064714869617917,
+    "reg_lambda": 0.0005517911972545675,
+    "scale_pos_weight": 2.848726336531241,
+    "eval_metric": "logloss",
+    "random_state": 42,
+    "verbosity": 0
+  },
+  "feature_importance": [
+    {
+      "feature": "checking_account",
+      "mean_abs_shap": 1.1515069007873535,
+      "std_shap": 0.8616354465484619
+    },
+    {
+      "feature": "savings_account",
+      "mean_abs_shap": 0.5026502013206482,
+      "std_shap": 0.6009379029273987
+    },
+    {
+      "feature": "purpose",
+      "mean_abs_shap": 0.43956512212753296,
+      "std_shap": 0.3466966152191162
+    },
+    {
+      "feature": "credit_history",
+      "mean_abs_shap": 0.35027793049812317,
+      "std_shap": 0.3937675952911377
+    },
+    {
+      "feature": "employment_since",
+      "mean_abs_shap": 0.3473586142063141,
+      "std_shap": 0.2858937382698059
+    },
+    {
+      "feature": "credit_per_month",
+      "mean_abs_shap": 0.3366153836250305,
+      "std_shap": 0.2659902274608612
+    },
+    {
+      "feature": "credit_burden",
+      "mean_abs_shap": 0.3294007182121277,
+      "std_shap": 0.32601436972618103
+    },
+    {
+      "feature": "duration_months",
+      "mean_abs_shap": 0.322281152009964,
+      "std_shap": 0.3506081700325012
+    },
+    {
+      "feature": "other_installment_plans",
+      "mean_abs_shap": 0.3204219937324524,
+      "std_shap": 0.29605990648269653
+    },
+    {
+      "feature": "property",
+      "mean_abs_shap": 0.26935338973999023,
+      "std_shap": 0.29828545451164246
+    },
+    {
+      "feature": "personal_status_sex",
+      "mean_abs_shap": 0.25392886996269226,
+      "std_shap": 0.15169787406921387
+    },
+    {
+      "feature": "amount_per_dependent",
+      "mean_abs_shap": 0.23669609427452087,
+      "std_shap": 0.1899339258670807
+    },
+    {
+      "feature": "credit_amount",
+      "mean_abs_shap": 0.20898805558681488,
+      "std_shap": 0.1839752495288849
+    },
+    {
+      "feature": "financial_stability",
+      "mean_abs_shap": 0.1719667762517929,
+      "std_shap": 0.16345705091953278
+    },
+    {
+      "feature": "age",
+      "mean_abs_shap": 0.14859504997730255,
+      "std_shap": 0.11219457536935806
+    }
+  ],
+  "fairness": {
+    "Male": {
+      "count": 139,
+      "approval_rate": 0.6762589928057554,
+      "actual_default_rate": 0.28776978417266186,
+      "predicted_default_rate": 0.3237410071942446,
+      "avg_risk_score": 0.3311937749385834,
+      "accuracy": 0.7338129496402878,
+      "auc": 0.8080808080808081
+    },
+    "Female": {
+      "count": 61,
+      "approval_rate": 0.6065573770491803,
+      "actual_default_rate": 0.32786885245901637,
+      "predicted_default_rate": 0.39344262295081966,
+      "avg_risk_score": 0.39943861961364746,
+      "accuracy": 0.6721311475409836,
+      "auc": 0.7402439024390244
+    },
+    "disparate_impact_ratio": 0.8969305894663411,
+    "passes_four_fifths_rule": 1.0
+  },
+  "mitigation": {
+    "threshold_optimizer": {
+      "method": "ThresholdOptimizer (Post-processing)",
+      "description": "Adjusts decision thresholds per group to equalize approval rates",
+      "disparate_impact_ratio": 0.8007068029786697,
+      "passes_four_fifths_rule": true,
+      "overall_accuracy": 0.755,
+      "dp_difference": 0.18622479065927583,
+      "dp_ratio": 0.26042154566744735,
+      "metrics_by_group": {
+        "Male": {
+          "count": 139,
+          "approval_rate": 0.7482014388489209,
+          "actual_default_rate": 0.28776978417266186,
+          "predicted_default_rate": 0.2517985611510791,
+          "accuracy": 0.762589928057554
+        },
+        "Female": {
+          "count": 61,
+          "approval_rate": 0.9344262295081968,
+          "actual_default_rate": 0.32786885245901637,
+          "predicted_default_rate": 0.06557377049180328,
+          "accuracy": 0.7377049180327869
+        }
+      }
+    },
+    "exponentiated_gradient": {
+      "method": "ExponentiatedGradient (In-processing)",
+      "description": "Trains a fair classifier using Demographic Parity constraints",
+      "disparate_impact_ratio": 0.9594477998274374,
+      "passes_four_fifths_rule": true,
+      "overall_accuracy": 0.79,
+      "dp_difference": 0.03325863899044698,
+      "dp_ratio": 0.843940232429441,
+      "metrics_by_group": {
+        "Male": {
+          "count": 139,
+          "approval_rate": 0.8201438848920863,
+          "actual_default_rate": 0.28776978417266186,
+          "predicted_default_rate": 0.17985611510791366,
+          "accuracy": 0.8057553956834532
+        },
+        "Female": {
+          "count": 61,
+          "approval_rate": 0.7868852459016393,
+          "actual_default_rate": 0.32786885245901637,
+          "predicted_default_rate": 0.21311475409836064,
+          "accuracy": 0.7540983606557377
+        }
+      }
+    }
+  }
+}
