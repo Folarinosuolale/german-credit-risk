@@ -209,11 +209,3 @@ streamlit run app/streamlit_app.py
 | **Data** | Pandas, NumPy |
 
 ---
-
-## Future Improvements
-
-- [ ] Add fairness-aware training (adversarial debiasing, reweighting)
-- [ ] Implement model monitoring for concept drift detection
-- [ ] Add model card generation (Google's Model Cards framework)
-- [ ] Deploy to cloud (Streamlit Cloud / AWS)
-- [ ] Build CI/CD pipeline with automated retraining
