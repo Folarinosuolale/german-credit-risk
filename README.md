@@ -16,6 +16,8 @@ A production-grade credit risk scoring system that predicts the likelihood of a 
 
 This project uses the German Credit dataset, originally collected in 1994. The dataset is over 30 years old, and that is part of the point. Data does not become useless with age. The lending patterns, risk signals, and demographic biases captured in this dataset are still observable in modern credit portfolios. Checking account status still predicts default risk. Loan duration still correlates with repayment failure. And models trained on historical data still absorb and amplify the biases embedded in that history. By building a full ML pipeline on this classic dataset, this project demonstrates that meaningful insights, actionable predictions, and real fairness concerns can be surfaced from any well-structured data, regardless of when it was collected.
 
+> **Live Dashboard** - [View the interactive Streamlit app](https://german-credit-risk-folarin.streamlit.app/)
+
 ### Why This Matters
 
 Credit scoring directly impacts people's access to loans, housing, and financial services. A credit model that is accurate but opaque or biased can:
